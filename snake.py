@@ -1,10 +1,17 @@
 from turtle import *
 from random import randrange
 from freegames import square, vector
+import random
 #importar las funciones square y vector del modulo free games
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+colores = ['black','green','brown','yellow','blue']
+color1 = random.choice(colores)
+colorcomida = random.choice(colores)
+while colorcomida == color1:
+    colorcomida = random.choice(colores)
+    
 #definir las posiciones iniciales de la comida, la serpiente y el andonde va la serpiente
 
 #cambiar la dirrección de la serpiente recibiendo los nuevos valores de "x" y "y"
@@ -39,11 +46,11 @@ def move():
         snake.pop(0)
 
     clear()
-#define las características del cuerpo de la serpiente 
+#define las características del cuerpo de la serpiente
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, color1)
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, colorcomida)
     update()
     ontimer(move, 100)
 
