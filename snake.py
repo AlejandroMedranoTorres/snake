@@ -48,6 +48,7 @@ def move():
     else:
         snake.pop(0)
         food.move(movimiento_comida[randrange(0,4)])
+        #checa si la comida se instancio adentro
         if not inside(food) or food in snake:
             square(food.x, food.y, 9, 'red')
             update()
